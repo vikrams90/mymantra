@@ -12,3 +12,27 @@
   background: linear-gradient(183deg, rgba(251, 86, 193, 0.891281512605042) 0%, rgba(255, 63, 108, 0.9136904761904762) 53%, rgba(182, 0, 19, 1) 100%);
 
 }
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .triangle svg {
+  fill: #fff;
+  font-size: 1.5rem;
+  transform: rotate(90deg);
+} */
+
+.shop-text {
+  background: linear-gradient(to right, #e4e4e4 0%, #808080 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* background-clip: initial; */
+}

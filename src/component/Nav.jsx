@@ -19,7 +19,10 @@ const Nav = () => {
   return (
     <nav className='bg-white flex justify-center items-center gap-14 py-4'>
       <div className='mr-4'>
-        <NavLink to={"/"}> <img src={logo} className='w-[50px] h-[50px]' alt='' /></NavLink>
+        <NavLink to={"/"}>
+          {" "}
+          <img src={logo} className='w-[50px] h-[50px]' alt='' />
+        </NavLink>
       </div>
 
       <div className='categories font-bold flex gap-10 text-[#282c3f] text-sm'>
@@ -29,8 +32,8 @@ const Nav = () => {
         <NavLink to={"/shop/women"} href=''>
           WOMEN
         </NavLink>
-        <NavLink href=''>KIDS</NavLink>
-        <NavLink href=''>HOME & LIVING</NavLink>
+        <NavLink to={"/shop/kids"}>KIDS</NavLink>
+        <NavLink href='/shop/home'>HOME & LIVING</NavLink>
         <NavLink href=''>BEAUTY</NavLink>
         <NavLink href=''>STUDIO</NavLink>
       </div>
@@ -49,19 +52,28 @@ const Nav = () => {
       </div>
 
       <div className='icons flex gap-4'>
-        <NavLink className='flex flex-col items-center cursor-pointer gap-1'>
+        <NavLink
+          to={""}
+          className='flex flex-col items-center cursor-pointer gap-1'
+        >
           <FaUser size={20} />
           <span className='text-xs '>profile</span>
         </NavLink>
-        <NavLink className='flex flex-col items-center cursor-pointer gap-1'>
+        <NavLink
+          to={"/wishlist"}
+          className='flex flex-col items-center cursor-pointer gap-1'
+        >
           <FaHeart size={20} />
           <span className='text-xs '>wishlist</span>
         </NavLink>
 
-        <span className='flex flex-col items-center cursor-pointer gap-1'>
+        <NavLink
+          to={"/cart"}
+          className='flex flex-col items-center cursor-pointer gap-1'
+        >
           <FaBagShopping size={20} />
           <span className='text-xs text-center'>Bag</span>
-        </span>
+        </NavLink>
       </div>
     </nav>
   );
