@@ -1,0 +1,918 @@
+{
+	"info": {
+		"_postman_id": "364d2fa5-7574-424b-9218-70c33a4e6803",
+		"name": "Cakelicious-Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32892548",
+		"_collection_link": "https://restless-robot-414567.postman.co/workspace/My-Workspace~e4d67788-c2ad-4131-87a9-9112c626dfab/collection/32892548-364d2fa5-7574-424b-9218-70c33a4e6803?action=share&source=collection_link&creator=32892548"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "addCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "catName",
+									"value": "cake",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "jZg7YlUpI/bike (1).jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url_server}}/category/addCategory",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"category",
+								"addCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"629052934d0d48cdf775ce83\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/category/deleteCategory",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"category",
+								"deleteCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCategory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJfaWQiOiI2NWM3MWE4MzRmM2NkYjAyZWY1ZjZjOGQiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIiwibmFtZSI6InRlc3QifSwiaWF0IjoxNzA3NTQ3ODMxLCJleHAiOjE3MDc5Nzk4MzF9.UyM_JEyACIhUi2TsZIk_qkWpNQ66kPC-nTk1aFXouTM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/category/viewCategory",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"category",
+								"viewCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "catName",
+									"value": "cake",
+									"type": "text"
+								},
+								{
+									"key": "oldImage",
+									"type": "file",
+									"src": "CjGuI1zV_/bike.jpeg"
+								},
+								{
+									"key": "categoryid",
+									"value": "628335b141a3a24fc5e9f8fc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url_server}}/category/updateCategory",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"category",
+								"updateCategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "getProductByCategoryId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJfaWQiOiI2NWM3MWE4MzRmM2NkYjAyZWY1ZjZjOGQiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIiwibmFtZSI6InRlc3QifSwiaWF0IjoxNzA3NTQ3ODMxLCJleHAiOjE3MDc5Nzk4MzF9.UyM_JEyACIhUi2TsZIk_qkWpNQ66kPC-nTk1aFXouTM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url_server}}/product/getProductBycategory/:categoryId",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"product",
+								"getProductBycategory",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJfaWQiOiI2NWM3MWE4MzRmM2NkYjAyZWY1ZjZjOGQiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIiwibmFtZSI6InRlc3QifSwiaWF0IjoxNzA3NTQ3ODMxLCJleHAiOjE3MDc5Nzk4MzF9.UyM_JEyACIhUi2TsZIk_qkWpNQ66kPC-nTk1aFXouTM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url_server}}/product/getProductById/:pId",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"product",
+								"getProductById",
+								":pId"
+							],
+							"variable": [
+								{
+									"key": "pId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchProduct",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJfaWQiOiI2NWM3MWE4MzRmM2NkYjAyZWY1ZjZjOGQiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIiwibmFtZSI6InRlc3QifSwiaWF0IjoxNzA3NTQ3ODMxLCJleHAiOjE3MDc5Nzk4MzF9.UyM_JEyACIhUi2TsZIk_qkWpNQ66kPC-nTk1aFXouTM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url_server}}/product/searchProduct/:text",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"product",
+								"searchProduct",
+								":text"
+							],
+							"variable": [
+								{
+									"key": "text",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addReview",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJfaWQiOiI2NWM3MWE4MzRmM2NkYjAyZWY1ZjZjOGQiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIiwibmFtZSI6InRlc3QifSwiaWF0IjoxNzA3NTQ3ODMxLCJleHAiOjE3MDc5Nzk4MzF9.UyM_JEyACIhUi2TsZIk_qkWpNQ66kPC-nTk1aFXouTM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pId\":\"62833b1038cf13c4f6e4fdb9\",\r\n    \"userId\":\"65c729f6ed70062b177e5012\",\r\n    \"review\":\"good\",\r\n    \"rating\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/product/addReview",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"product",
+								"addReview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editReview",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJfaWQiOiI2NWM3MWE4MzRmM2NkYjAyZWY1ZjZjOGQiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIiwibmFtZSI6InRlc3QifSwiaWF0IjoxNzA3NTQ3ODMxLCJleHAiOjE3MDc5Nzk4MzF9.UyM_JEyACIhUi2TsZIk_qkWpNQ66kPC-nTk1aFXouTM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pId\":\"62833b1038cf13c4f6e4fdb9\",\r\n    \"userId\":\"65c729f6ed70062b177e5012\",\r\n    \"review\":\"good\",\r\n    \"rating\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/product/editReview",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"product",
+								"editReview"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Support",
+			"item": []
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "ldfkgldklgdklfgkdlkgldkfgldkgldklfdlgkldf",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 3500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/create-order",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								"create-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "place order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "ldkflgkldkgldkgldkgldkglkdlgkdlgldkgld",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1001,\r\n    \"paymentResponse\":{\r\n        \"razorpay_payment_id\":\"alfdkflgkdlfgldk\"\r\n        },\r\n    \"address\":\"indore\",\r\n    \"alterMobile\":\"9809809809\",\r\n    \"orderedItems\":[]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/place-order",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								"place-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buy now",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "dlfkgldkgldkgldklgkdlgkd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile\":9809809800,\r\n    \"address\":\"indore\",\r\n    \"paymentMethod\":\"upi\",\r\n    \"paymentId\":\"ldfkgldkfgldkgld\",\r\n    \"orderId\":\"12324234354\",\r\n    \"customer\":\"kjkfjgkd\",\r\n    \"total\":234234,\r\n    \"pId\":\"ddkflgkdlfg\",\r\n    \"qty\":\"12345\",\r\n    \"size\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/buy-now",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								"buy-now"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "dlfkgldkgldkgldlgdlgfkldg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"ldfldflgdlfgdfg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/view-order",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								"view-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cash on delivery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/order/cash-on-delivery",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"order",
+								"cash-on-delivery"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "add-to-cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJfaWQiOiI2NWM3MWE4MzRmM2NkYjAyZWY1ZjZjOGQiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIiwibmFtZSI6InRlc3QifSwiaWF0IjoxNzA3NTQ3ODMxLCJleHAiOjE3MDc5Nzk4MzF9.UyM_JEyACIhUi2TsZIk_qkWpNQ66kPC-nTk1aFXouTM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Userid\":\"65c71c9d76435f043d2f98f4\",\n    \"id\":4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/cart/add-to-cart",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"cart",
+								"add-to-cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJfaWQiOiI2NWM3MWE4MzRmM2NkYjAyZWY1ZjZjOGQiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIiwibmFtZSI6InRlc3QifSwiaWF0IjoxNzA3NTQ3ODMxLCJleHAiOjE3MDc5Nzk4MzF9.UyM_JEyACIhUi2TsZIk_qkWpNQ66kPC-nTk1aFXouTM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Userid\":\"65c71c9d76435f043d2f98f4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/cart/view-cart",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"cart",
+								"view-cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJfaWQiOiI2NWM3MWE4MzRmM2NkYjAyZWY1ZjZjOGQiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIiwibmFtZSI6InRlc3QifSwiaWF0IjoxNzA3NTQ3ODMxLCJleHAiOjE3MDc5Nzk4MzF9.UyM_JEyACIhUi2TsZIk_qkWpNQ66kPC-nTk1aFXouTM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Userid\":\"65c71c9d76435f043d2f98f4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/cart/delete-cart",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"cart",
+								"delete-cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-cart-item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJfaWQiOiI2NWM3MWE4MzRmM2NkYjAyZWY1ZjZjOGQiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIiwibmFtZSI6InRlc3QifSwiaWF0IjoxNzA3NTQ3ODMxLCJleHAiOjE3MDc5Nzk4MzF9.UyM_JEyACIhUi2TsZIk_qkWpNQ66kPC-nTk1aFXouTM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Userid\":\"65c71c9d76435f043d2f98f4\",\n    \"pId\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/cart/delete-cart-item",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"cart",
+								"delete-cart-item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Folder",
+			"item": []
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\":{\r\n        \"name\":\"chetan\",\r\n        \"email\":\"chetanmalviya924@gmail.com\",\r\n        \"mobile\":8839597780,\r\n        \"password\":\"Chetan@123\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/customer/sign-up",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"customer",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign-in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"chetanmalviya924@gmail.com\",\r\n    \"password\":\"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/customer/sign-in",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"customer",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify-email",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/customer/verify-email/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbFZlcmlmaWNhdGlvbiI6eyJfaWQiOiI2NWM3MjExMGVkNzAwNjJiMTc3ZTUwMGYiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIn0sImlhdCI6MTcwNzU0ODk0NCwiZXhwIjoxNzA3NjM1MzQ0fQ.ozj1rdwQdwRx8tXAa4t-Lgre9JyO1IYmzpBVblDem_8",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"customer",
+								"verify-email",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbFZlcmlmaWNhdGlvbiI6eyJfaWQiOiI2NWM3MjExMGVkNzAwNjJiMTc3ZTUwMGYiLCJlbWFpbCI6ImNoZXRhbm1hbHZpeWE5MjRAZ21haWwuY29tIn0sImlhdCI6MTcwNzU0ODk0NCwiZXhwIjoxNzA3NjM1MzQ0fQ.ozj1rdwQdwRx8tXAa4t-Lgre9JyO1IYmzpBVblDem_8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login-with-google",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"chetanmalviya924@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/customer/login-with-google",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"login-with-google"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify-email-resend",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"chetanmalviya924@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/customer/verify-email-resend",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"customer",
+								"verify-email-resend"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send-otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile\":8839597780\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/customer/send-otp",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"customer",
+								"send-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"chetanmalviya924@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/customer/reset-password",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"customer",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify-otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"65c712cd495454a4cafd98b9\",\r\n    \"otp\": 3049\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url_server}}/customer/verify-otp",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"customer",
+								"verify-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url_server}}/customer/profile",
+							"host": [
+								"{{base_url_server}}"
+							],
+							"path": [
+								"customer",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url-testing",
+			"value": "http://52.90.114.34:3000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "your token",
+			"type": "string"
+		}
+	]
+}

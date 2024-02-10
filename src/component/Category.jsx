@@ -1,8 +1,15 @@
-import React from "react";
-import { category } from "../fakedata";
+import React, { useEffect } from "react";
 import CategoryItem from "./CategoryItem";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchdata } from "../Features/categorySlice";
 
 const Category = () => {
+  const dispatch = useDispatch();
+  const { categories } = useSelector((state) => state.category);
+  console.log(categories);
+  useEffect(() => {
+    dispatch(fetchdata());
+  }, []);
   return (
     <>
       <div>
@@ -11,8 +18,8 @@ const Category = () => {
         </h1>
       </div>
       <div className='flex flex-wrap justify-center gap-3'>
-        {category.map((item) => (
-          <CategoryItem />
+        {categories.map((item, index) => (
+          <CategoryItem key={item._id} item={item} />
         ))}
       </div>
     </>

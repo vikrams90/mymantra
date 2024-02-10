@@ -6,7 +6,14 @@ import {
   FaMagnifyingGlass,
   FaUser,
 } from "react-icons/fa6";
+import { useState } from "react";
+import HoverMenu from "./HoverMenu";
+
 const Nav = () => {
+  const [data, SetData] = useState({
+    hidden: true,
+    on: "none",
+  });
   const handleIn = (e) => {
     e.target.parentElement.classList.remove("bg-[#f5f5f6]");
     e.target.parentElement.classList.add("bg-[#ffffff]");
@@ -15,6 +22,20 @@ const Nav = () => {
   const handleOut = (e) => {
     e.target.parentElement.classList.remove("bg-[#ffffff]");
     e.target.parentElement.classList.add("bg-[#f5f5f6]");
+  };
+
+  const handleHover = (e) => {
+    if (e.target.classList.contains("men")) {
+      console.log(e.target);
+      SetData({ hidden: false, on: "men" });
+    } else if (e.target.classList.contains("women")) {
+      console.log(e.target);
+      SetData({ hidden: false, on: "women" });
+    }
+  };
+  const handleHoverOut = (e) => {
+    console.log("out");
+    SetData({ hidden: true, on: "none" });
   };
   return (
     <nav className='bg-white sticky top-0 w-full z-40 flex justify-center items-center gap-14 py-4'>
@@ -25,10 +46,20 @@ const Nav = () => {
       </div>
 
       <div className='categories font-bold flex gap-10 text-[#282c3f] text-sm'>
-        <NavLink onMouseEnter={handleHover} to={"/shop/men"} href=''>
+        <NavLink
+          onMouseEnter={handleHover}
+          onMouseLeave={handleHoverOut}
+          to={"/shop/men"}
+          className='men'
+        >
           MEN
         </NavLink>
-        <NavLink to={"/shop/women"} href=''>
+        <NavLink
+          onMouseEnter={handleHover}
+          onMouseLeave={handleHoverOut}
+          to={"/shop/women"}
+          className='women'
+        >
           WOMEN
         </NavLink>
         <NavLink to={"/shop/kids"}>KIDS</NavLink>
@@ -74,6 +105,7 @@ const Nav = () => {
           <span className='text-xs text-center'>Bag</span>
         </NavLink>
       </div>
+      <HoverMenu data={data} />
     </nav>
   );
 };
