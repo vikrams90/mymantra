@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/Myntra-Logo.png";
 import {
   FaBagShopping,
@@ -20,13 +20,12 @@ const Nav = () => {
     <nav className='bg-white sticky top-0 w-full z-40 flex justify-center items-center gap-14 py-4'>
       <div className='mr-4'>
         <NavLink to={"/"}>
-          {" "}
           <img src={logo} className='w-[50px] h-[50px]' alt='' />
         </NavLink>
       </div>
 
       <div className='categories font-bold flex gap-10 text-[#282c3f] text-sm'>
-        <NavLink to={"/shop/men"} href=''>
+        <NavLink onMouseEnter={handleHover} to={"/shop/men"} href=''>
           MEN
         </NavLink>
         <NavLink to={"/shop/women"} href=''>
