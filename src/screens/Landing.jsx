@@ -6,12 +6,12 @@ import AppDownload from "../component/AppDownload";
 
 const Landing = () => {
   return (
-    <>
-          <Hero />
+    <main className=''>
+      <Hero />
       <Category />
       <FixedEl />
-      <AppDownload/>
-    </>
+      <AppDownload />
+    </main>
   );
 };
 

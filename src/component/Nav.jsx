@@ -17,7 +17,7 @@ const Nav = () => {
     e.target.parentElement.classList.add("bg-[#f5f5f6]");
   };
   return (
-    <nav className='bg-white flex justify-center items-center gap-14 py-4'>
+    <nav className='bg-white sticky top-0 w-full z-40 flex justify-center items-center gap-14 py-4'>
       <div className='mr-4'>
         <NavLink to={"/"}>
           {" "}

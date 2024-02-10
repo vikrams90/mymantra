@@ -8,8 +8,10 @@ import Footer from "../component/Footer";
 const Home = () => {
   return (
     <>
-      <Nav />
-      <Outlet />
+      <div>
+        <Nav />
+        <Outlet />
+      </div>
       {/* <Footer /> */}
     </>
   );
