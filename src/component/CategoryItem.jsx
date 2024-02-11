@@ -1,8 +1,12 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const CategoryItem = ({ item }) => {
   return (
-    <div className='card flex flex-col items-center w-[250px] h-[300px] cursor-pointer'>
+    <NavLink
+      to={`/shop/${item.catName}`}
+      className='card flex flex-col items-center w-[200px] h-[300px] cursor-pointer'
+    >
       <div className='flex-grow-1 p-2 overflow-hidden'>
         <img className='w-full h-[300px]' src={item.catImage} alt='image' />
       </div>
@@ -11,7 +15,7 @@ const CategoryItem = ({ item }) => {
         {/* <p className='font-bold text-2xl'>{}% OFF</p> */}
         <button className='text-lg'>Shop Now</button>
       </div>
-    </div>
+    </NavLink>
   );
 };
 

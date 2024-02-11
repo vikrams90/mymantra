@@ -30,33 +30,20 @@ const HoverMenu = ({ data }) => {
                   <li>Dhotis</li>
                 </ul>
               </li>
-              <li>
-                Bottomwear
-                <ul>
-                  <li>jeans</li>
-                  <li>casual trousers</li>
-                  <li>formal trousers</li>
-                  <li>shorts</li>
-                  <li>track pants & joggers</li>
-                </ul>
-              </li>
-              <li>
-                <ul>
-                  innerwear
-                  <li>Briefs & trunks</li>
-                  <li>Boxers</li>
-                  <li>vests</li>
-                  <li>sleepwear & lounge</li>
-                </ul>
-              </li>
-              <li></li>
-              <li></li>
             </ul>
           </div>
         );
       case "women":
         return <ul className={style}>women</ul>;
-      default:
+      case "kids":
+        return <ul className={style}>kids</ul>;
+        case "home":
+            return <ul className={style}>home & living</ul>
+        case "studio":
+            return <ul className={style}>studio</ul>
+        case "beauty":
+            return <ul className={style}>beauty</ul>
+        default:
         return null;
     }
   }

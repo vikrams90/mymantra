@@ -8,29 +8,27 @@ import {
 } from "react-icons/fa6";
 import { useState } from "react";
 import HoverMenu from "./HoverMenu";
+import Search from "./Search";
 
 const Nav = () => {
   const [data, SetData] = useState({
     hidden: true,
     on: "none",
   });
-  const handleIn = (e) => {
-    e.target.parentElement.classList.remove("bg-[#f5f5f6]");
-    e.target.parentElement.classList.add("bg-[#ffffff]");
-    // e.target.parentElement.classList.add("b");
-  };
-  const handleOut = (e) => {
-    e.target.parentElement.classList.remove("bg-[#ffffff]");
-    e.target.parentElement.classList.add("bg-[#f5f5f6]");
-  };
 
   const handleHover = (e) => {
     if (e.target.classList.contains("men")) {
-      console.log(e.target);
       SetData({ hidden: false, on: "men" });
     } else if (e.target.classList.contains("women")) {
-      console.log(e.target);
       SetData({ hidden: false, on: "women" });
+    } else if (e.target.classList.contains("beauty")) {
+      SetData({ hidden: false, on: "beauty" });
+    } else if (e.target.classList.contains("home")) {
+      SetData({ hidden: false, on: "home" });
+    } else if (e.target.classList.contains("studio")) {
+      SetData({ hidden: false, on: "studio" });
+    } else if (e.target.classList.contains("kids")) {
+      SetData({ hidden: false, on: "kids" });
     }
   };
   const handleHoverOut = (e) => {
@@ -38,7 +36,7 @@ const Nav = () => {
     SetData({ hidden: true, on: "none" });
   };
   return (
-    <nav className='bg-white sticky top-0 w-full z-40 flex justify-center items-center gap-14 py-4'>
+    <nav className='bg-white sticky top-0 w-full z-40 flex justify-center items-center gap-5 py-4'>
       <div className='mr-4'>
         <NavLink to={"/"}>
           <img src={logo} className='w-[50px] h-[50px]' alt='' />
@@ -62,28 +60,45 @@ const Nav = () => {
         >
           WOMEN
         </NavLink>
-        <NavLink to={"/shop/kids"}>KIDS</NavLink>
-        <NavLink href='/shop/home'>HOME & LIVING</NavLink>
-        <NavLink href=''>BEAUTY</NavLink>
-        <NavLink href=''>STUDIO</NavLink>
+        <NavLink
+          onMouseEnter={handleHover}
+          onMouseLeave={handleHoverOut}
+          to={"/shop/kids"}
+          className={"kids"}
+        >
+          KIDS
+        </NavLink>
+        <NavLink
+          onMouseEnter={handleHover}
+          onMouseLeave={handleHoverOut}
+          to='/shop/home'
+          className={"home"}
+        >
+          HOME & LIVING
+        </NavLink>
+        <NavLink
+          onMouseEnter={handleHover}
+          onMouseLeave={handleHoverOut}
+          className={"beauty"}
+          to={"/shop/beauty"}
+        >
+          BEAUTY & SKINCARE
+        </NavLink>
+        <NavLink
+          onMouseEnter={handleHover}
+          onMouseLeave={handleHoverOut}
+          className={"studio"}
+          to={"/shop/studio"}
+        >
+          STUDIO
+        </NavLink>
       </div>
 
-      <div className='flex items-center bg-[#f5f5f6] border-[#f5f5f6] border-[2px] rounded-md border-[solid] w-[500px] py-[6px] px-[10px] '>
-        <button className='w-10 h-7 bg-transparent flex justify-center items-center'>
-          <FaMagnifyingGlass color='#696e79' />
-        </button>
-        <input
-          onFocus={(e) => handleIn(e)}
-          onBlur={(e) => handleOut(e)}
-          type='text'
-          placeholder='Search for produts, brands and more '
-          className='bg-transparent text-sm w-11/12 border-none outline-none font-light text-[#696e79]'
-        />
-      </div>
+      <Search />
 
       <div className='icons flex gap-4'>
         <NavLink
-          to={""}
+          to={"/auth"}
           className='flex flex-col items-center cursor-pointer gap-1'
         >
           <FaUser size={20} />

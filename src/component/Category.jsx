@@ -6,7 +6,7 @@ import { fetchdata } from "../Features/categorySlice";
 const Category = () => {
   const dispatch = useDispatch();
   const { categories } = useSelector((state) => state.category);
-  console.log(categories);
+  //   console.log(categories);
   useEffect(() => {
     dispatch(fetchdata());
   }, []);
@@ -17,7 +17,7 @@ const Category = () => {
           SHOP BY CATEGORY
         </h1>
       </div>
-      <div className='flex flex-wrap justify-center gap-3'>
+      <div className='flex flex-wrap justify-center gap-5'>
         {categories.map((item, index) => (
           <CategoryItem key={item._id} item={item} />
         ))}

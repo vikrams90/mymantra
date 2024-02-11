@@ -37,8 +37,7 @@ export const fetchdata = createAsyncThunk("fetchData/fetch", async () => {
         authorization: token,
       },
     };
-    const response = await axios.get(
-      "http://52.90.114.34:3000/category/viewCategory",
+    const response = await axios.get("http://52.90.114.34:3000/category/viewCategory",
       config
     );
     return response.data;
